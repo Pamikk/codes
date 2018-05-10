@@ -4,4 +4,4 @@ Use to save some codes. Only codes marked as share/public can be used in other w
 
 # Subfiles
 ---
-Pytorch: Learning note of Pytorch
+Pytorch: Learning notes of Pytorch
