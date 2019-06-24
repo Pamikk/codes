@@ -29,6 +29,7 @@ To do list:
 + Sequential
 + Dataset and Dataloader
 + GPU and Multi-gpu trianing
+    + torch.cuda related
 + Pytorch and visdom
 + LSTM and RNN
 + Optimizing training...
