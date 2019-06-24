@@ -16,17 +16,30 @@ Author: Soumith Chintala
 
 ---
 
++ build_net.py
+    should work for Pytorch >=0.4.0
+    + Network build tricks
+        + nn.Sequential
+        + Weight Initialization
+        + basic block used
+All codes reffering Pytorch official doc
+https://pytorch.org/docs/stable/nn.html
+Most codes work for Pytorch >= 0.4.0 which is used when I start to learn Pytorch
+Some codes only work for Pytorch>=1.0.0 which is my currently used version.
+
+Pytroch env:
+conda env base: python 3.7.1 and pytorch 0.4.1
+conda env torch: python 3.6.8 and pytorch 1.1.0
+
 To do list:
-+ Weight Initialization
 + Fine-tune Optimizer
-+ Torch Fundamental Loss
-+ Self-defined Loss
+    + Torch Fundamental Loss
+    + Self-defined Loss
 + Spatial Transformation Network
 + Some useful functions
     + save checkpoint
     + load checkpoint
     + update model weight partialy
-+ Sequential
 + Dataset and Dataloader
 + GPU and Multi-gpu trianing
     + torch.cuda related
