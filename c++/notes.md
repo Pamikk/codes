@@ -88,16 +88,10 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
                 + symbolic constant
                     + object-like macros
                     + constexpr
-                
-
-                
-
-            
-     + user-defined types
 
 + Variables
 
-    + copy initialization:        
+    + copy initialization:
         + int width =5;
     
     + direct intializaiton:
@@ -187,8 +181,27 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
     + scope of #define
 
         resolved before compilation, from top to bottom on a file-by-file basis.
+
+### Operators
++ precedence and associativity 
+
+    https://www.learncpp.com/cpp-tutorial/31-precedence-and-associativity/
++ x++ and ++x
+    + x++ postfix increment
         
-### Conditional Statement
+        evaluate x and then increase x
+        
+        y = x++;\\y=x,x+=1
+    + ++x prefix increment 
+        
+        increase x and then evaluate x
+
+        y = ++x;\\ x+=1,y=x
++ conditional operator ?:
+    + c?x:y
+    + if c then x else y
++ 
+### Control Flow
 + if
     + if (condition) statement1;
     + if (condition) statement1;else statement2;
