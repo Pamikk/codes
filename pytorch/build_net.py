@@ -42,8 +42,9 @@ class Net(nn.Module):
         x = self.bn1(x)
 
         x = self.block1(x)
-        x = self.pool2d(x)
+        x = self.pool(x)
         x = self.block2(x)
+        x = self.pool(x)
         x = x.view(x.shape[0],-1)
         out = self.fc(x)
         return out

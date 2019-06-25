@@ -22,6 +22,11 @@ Author: Soumith Chintala
         + nn.Sequential
         + Weight Initialization
         + basic block used
++ fine_tune.py
+    + loss functions implemented by pytorch
+    + self-defined loss function
+    + optimizers and finetune(set different lr for different part)
+
 All codes reffering Pytorch official doc
 https://pytorch.org/docs/stable/nn.html
 Most codes work for Pytorch >= 0.4.0 which is used when I start to learn Pytorch
