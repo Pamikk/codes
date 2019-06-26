@@ -1,8 +1,9 @@
 ### Readme
 
-+ notes.md : C++ notes
++ notes.md : C++ notes based on https://www.learncpp.com/cpp-tutorial/, it is a website introducing c++ so detaily that this note will cover many fundamental programming knowledge.
++ new_note.md: C++ notes based on https://www.learncpp.com/cpp-tutorial/, it has a more direct outline. And this note will cover some adavanced methods used in c++.
 + hello_world.cpp: main function to test environment
-+ compile command(currently,might change timely): g++ main.cpp add.cpp -o main
++ compile command(currently,might change timely): g++ hello_world.cpp add.cpp -o hello_world.exe
 + environment: 
     + windows10
     + Mingw64

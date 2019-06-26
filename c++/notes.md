@@ -1,38 +1,42 @@
 # C++ Notes
-Notes based on https://www.learncpp.com/cpp-tutorial/
+
+Notes based on <https://www.learncpp.com/cpp-tutorial/>
+
+As I have not completely mastered markdown grammar, This note might seem ugly.
 
 Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
-### GCC/G++ Commands
+
+## GCC/G++ Commands
 
 + disable language extension: -pedantic-errors flag
 
-+ increasing warning level: -Wall -Weffc++ -Wextra -Wsign-conversion 
++ increasing warning level: -Wall -Weffc++ -Wextra -Wsign-conversion
 
 + treat warnings as errors: -Werror
 
 + gcc need –l stdc++ flags
-    + -g turn on debugging    
-    + -c output an object file
-    + -I specify an includedirectory
-    + -L specify a libdirectory
-    + -l link with libraylib.a
++ gcc/g++ flags
+  + -g turn on debugging
+  + -c output an object file
+  + -I specify an includedirectory
+  + -L specify a libdirectory
+  + -l link with libraylib.a
+  + -std =c++0x
 + Multi-file Project
-    + gcc/g++ main.cpp add.cpp -o main
+  + gcc/g++ main.cpp add.cpp -o main
 
 ### C++ Properties
 
-+ direct memory access is not allowed: object(region of memory), store and retrive values; named one variable and its name is identifier.
-    
-    + instantiation: create vairable and assign memory address
++ direct memory access is not allowed: object(region of memory), store and retrive values; named one variable and its name is identifier. 
+  + instantiation: create vairable and assign memory address
+  + instantiated object also called instance
 
-    + instantiated object also called instance
-
-+ Data Type:     
-    + binary digits, bits
-        + smallest unit of memory
-        + 0,1
-    + memory addresses, address
-        +  orgnized memory sequential units
++ Data Type:
+  + binary digits, bits
+    + smallest unit of memory
+    + 0,1
+  + memory addresses, address
+    + orgnized memory sequential units
         + hold 1 byte of data
         + byte: comprised of 8 sequential bits.
     + must known at complie time to tell compiler how to interpret the corresponding memory.
