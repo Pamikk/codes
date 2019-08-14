@@ -1,8 +1,7 @@
 #include <iostream>
 #include <iomanip> // for std::setprecision()
  
-int main()
-{
+int main(){
     std::cout << "bool:\t\t" << sizeof(bool) << " bytes\n";
     std::cout << "char:\t\t" << sizeof(char) << " bytes\n";
     std::cout << "wchar_t:\t" << sizeof(wchar_t) << " bytes\n";

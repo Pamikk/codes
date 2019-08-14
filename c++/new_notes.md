@@ -114,6 +114,37 @@
   - same name but different input type or output type or function body
   - cannot be overloaded only by its return type. At least one of its parameters must have a different type.
   - function template
+
+    ```c++
+    template <class T>
+    T sum (T a, T b){
+        T result;
+        result = a + b;
+        return result;
+    }
+    template <class T, class U>
+    bool are_equal (T a, U b){
+        return (a==b);
+    }
+    ```
+
+  - non-type template arguments
+  
+  ```c++
+  #include <iostream>
+  using namespace std;
+
+  template <class T, int N>
+  T fixed_multiply (T val){
+      return val * N;
+  }
+
+  int main() {
+      std::cout << fixed_multiply<int,2>(10) << '\n';
+      std::cout << fixed_multiply<int,3>(10) << '\n';
+  }
+  ```
+   
     
    
 
@@ -135,5 +166,46 @@
     int foo = 0;
     delctype(foo) bar; //the same as int bar;
     ```
+
+  - namespace and using
+
+    ```c++
+    #include <iostream>
+    using namespace std;
+
+    namespace first{
+        int x = 5;
+        int y = 10;
+    }
+
+    namespace second{
+        double x = 3.1416;
+        double y = 2.7183;
+    }
+    int main () {
+        using first::x;
+        using second::y;
+        using namespace first;
+        cout << x << '\n';
+        cout << y << '\n';
+        cout << first::y << '\n';
+        cout << second::x << '\n';
+        return 0;
+    ```
+
+## Concepts(?)
+
+- Storage classes
+  - static storage: allocated for the entire duration of the program
+    - global variable
+    - namespace(namespace can only defined in global scope)
+  - automatic storage
+    - local variable
+- memory orgnization
+  - structure:static heap->free memory<-stack
+  - stack: local variable
+  - heap: new/delete pointers
+
+
 
 
