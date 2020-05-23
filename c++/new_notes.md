@@ -15,6 +15,22 @@
     string mystring {"This is a string"};
     ```
 
+- Compound Datatype
+  - Array
+    - series of elements of the same type placed in contiguous memory locations that can be individually referenced by adding an index to a unique identifier
+    - Initialize 
+      - type name [num of elements] 
+      - type name = {elements}
+    - Access
+      - name[index]
+    - Multidimensional arrays
+      - type name [][]...
+    - As parameters
+      - void procedure (int arg[])
+    - Library arrays
+      - array<type,num> name {}
+      - arr.size()
+    
 ## Basic I/O
 
 - cin
@@ -145,7 +161,7 @@
   }
   ```
    
-    
+   
    
 
 
