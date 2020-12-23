@@ -1,9 +1,14 @@
 using namespace std;
 struct node{
+    int val;
+    node *l;
+    node *r;
+};
+struct Tree_node{
    int val;
-   node * p;
-   node * l;
-   node * r;
+   Tree_node * p;
+   Tree_node * l;
+   Tree_node * r;
 };
 
 class BSTree{

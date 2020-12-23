@@ -26,7 +26,6 @@ def gen_rot_mat(ang,h,w,s=1):
     mat[1,0] = np.sin(ang)
     mat[1,1] = np.cos(ang)
     mat[2,2] = 1
-    mat[3,3] = s  #scale factor, both x-axis an y-axis   
     
     br = np.dot(mat,np.array([w,h,1]).T)
     bl = np.dot(mat,np.array([0,h,1]).T)
@@ -37,11 +36,11 @@ def gen_rot_mat(ang,h,w,s=1):
     nh = max(nh,h)
     nw = max(nw,w)
     trans = np.eye(3)
-    trans[0,2] = -nw/2
-    trans[1,2] = -nh/2
+    trans[0,2] = -w/2
+    trans[1,2] = -h/2
     mat = np.dot(mat,trans)
-    trans[0,2] = nw/2
-    trans[1,2] = nh/2
+    trans[0,2] = w/2
+    trans[1,2] = h/2
     mat = np.dot(trans,mat)
     return mat,(nh,nw)
 ### interpolations ###
@@ -72,15 +71,17 @@ def affine_trans2d(src,mat,tsize=None,interpolation='bilinear'):
 def rotate(img,ang):
     h,w,c = img.shape
     mat,tsize = gen_rot_mat(ang,h,w)
-    inv = np.linalg.inv(mat)
+    print(np.linalg.inv(mat))
+    inv = cv2.getRotationMatrix2D((w/2,h/2), ang, 1.0)
+    print(inv)
     nh,nw = tsize
     dh,dw = (nh-h)//2,(nw-w)//2
     target = np.zeros((nh,nw,c),dtype=img.dtype)
     target[dh:dh+h,dw:dw+w,:] = img
     #padding to keep all pixels
-    res = cv2.warpAffine(target,inv[:2,:],(nw,nh))
-    show_img(res)
-    res = affine_trans2d(target,inv,(nh,nw))
+    res = cv2.warpAffine(img,inv[:2,:],(w,h))
+    #show_img(res)
+    #res = affine_trans2d(target,inv,(nh,nw))
     print(res.shape)
     return res
 
@@ -94,7 +95,7 @@ if __name__ == "__main__":
     print(img.shape)
     ang = random.uniform(0,1)*360
     print(ang)
-    res = rotate(img,ang)
+    res = rotate(img,20)
     nh,nw,_=res.shape
     cv2.circle(res,(nw//2,nh//2),2,(255,0,0))
     cv2.circle(res,(192,256),2,(0,255,0))
