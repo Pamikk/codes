@@ -120,7 +120,7 @@
     + element selector: specify element type e.g. p
     + class selector:marked with class 
 
-      ```CSS
+      ```
       .blue {
           color: blue;
       }
@@ -129,7 +129,7 @@
   + 
 
   + id Selector: marked with id
-  ```CSS
+  ```
   #name{
       color: blue;
   }
@@ -137,7 +137,7 @@
 
   + grouping selector
 
-  ```CSS
+  ```
   div, .blue{
       color:blue;
   }
@@ -145,7 +145,7 @@
   + Combining Selectors
   + element with class: p with class
   
-  ```CSS
+  ```
   p.big {
       font-size: 20px;
   }
@@ -153,7 +153,7 @@
 
   + Child Selector: p element as a direct child of article element
 
-  ```CSS
+  ```
   article > p {
       color: blue;
   }
@@ -161,7 +161,7 @@
 
   + Descendant Selector:decendant not necessarily direct
   
-  ```CSS
+  ```
   article p{
       color: blue;
   }
@@ -169,7 +169,7 @@
 
   + not limited to element selectors
 
-  ```CSS
+  ```
   .colored p{
       color: blue;
   }
@@ -190,7 +190,7 @@
    
    ```CSS
    a:link, a:visited{
-       text-dcoration: none;
+       text-decoration: none;
        border: 1px solid blue;
        display: block;
    }
