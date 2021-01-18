@@ -1,5 +1,7 @@
 # Notes for Web Development
-+ Ref: Courera: https://www.coursera.org/learnhtml-css-javascript-for-web-developers/home/welcome
++ Ref: 
+  +  <a href=https://www.coursera.org/learn/html-css-javascript-for-web-developers/home/welcome> HTML, CSS, and Javascript for Web Developers</a>
+  + <a href="https://www.coursera.org/specializations/web-design#courses"> Cousera:Web Design for Everybody: Basics of Web Development & Coding Specialization</a>
 + Setup
   + Chrome with CDT
   + Code Editor
@@ -18,6 +20,22 @@
     + HTML(evolving)
   + caniuse.com
   + browser statistics of w3c
++ How it works
+  + Servers
+  + Client
+  + Networks
+  + Request/Response Cycle
+    + client requests
+    + server response
+      + return files
+      + error codes
+    + Uniform Resource Locator(URL)
+      + portocol - how to connect
+        + HTTP
+        + HTTPS
+        + FTP
+      + domain - ther server
+      + (optional) document
 + HTML Tag
   + opening tag ... closing tag
     + ``` <p> content </p>```
@@ -108,6 +126,7 @@
 + Style
   + color
   + Fontsize
+  + cascade style sheet
 + CSS Rule
   + selector { #declaration
               property:value;}
@@ -126,82 +145,178 @@
       }
       <p class="blue"> </p>
       ```
-  + 
+    + id Selector: marked with id
+      ```
+      #name{
+          color: blue;
+      }
+      ```
 
-  + id Selector: marked with id
-  ```
-  #name{
-      color: blue;
-  }
-  ```
+    + grouping selector
 
-  + grouping selector
+      ```
+      div, .blue{
+          color:blue;
+      }
+      ```
+    + Combining Selectors
+    + element with class: p with class    
+      ```
+      p.big {
+          font-size: 20px;
+      }
+      ```
 
-  ```
-  div, .blue{
-      color:blue;
-  }
-  ```
-  + Combining Selectors
-  + element with class: p with class
-  
-  ```
-  p.big {
-      font-size: 20px;
-  }
-  ```
+    + Child Selector: p element as a direct child of article element
 
-  + Child Selector: p element as a direct child of article element
+    ```
+    article > p {
+        color: blue;
+    }
+    ```
 
-  ```
-  article > p {
-      color: blue;
-  }
-  ```
+    + Descendant Selector:decendant not necessarily direct
+    
+    ```
+    article p{
+        color: blue;
+    }
+    ```
 
-  + Descendant Selector:decendant not necessarily direct
-  
-  ```
-  article p{
-      color: blue;
-  }
-  '''
+    + not limited to element selectors
 
-  + not limited to element selectors
+    ```
+    .colored p{
+        color: blue;
+    }
+    p > .colored{
+        color: blue'
+    }
+    ```
 
-  ```
-  .colored p{
-      color: blue;
-  }
-
-  p > .colored{
-      color: blue'
-  }
-  ```
-
-+ Pseudo-Class Selectors
-  + selector:pseudo-class
-  + predefined class names:
-    + :link
-    + :visited
-    + :hover
-    + :active: click but not release
-    + :nth-child()
-   
-   ```CSS
-   a:link, a:visited{
-       text-decoration: none;
-       border: 1px solid blue;
-       display: block;
-   }
-   header li:nth-child(3){
-       font-size: 24 px;
-   }
-   section div:nth-child(odd){
-       background-color: gray;
-   }
-   ```
-  
+    + Pseudo-Class Selectors
+      + selector:pseudo-class
+      + predefined class names:
+        + :link
+        + :visited
+        + :hover
+        + :active: click but not release
+        + :nth-child()
+      
+      ```
+      a:link, a:visited{
+          text-decoration: none;
+          border: 1px solid blue;
+          display: block;
+      }
+      header li:nth-child(3){
+          font-size: 24 px;
+      }
+      section div:nth-child(odd){
+          background-color: gray;
+      }
+      ```
+  + inline styling(not recommend)
+  + external style sheet(.css)
+    + ``` <link rel="stylesheet" href="style.css">```
+  + conflict resolution
+    + origin precedence
+      + Last declaration(top to bottom)
+      + external CSS as declared as the spot it linked to
+      + declaration merges
+    + inheritance
+      + children inherit the style
+      + parent will not inherit style of children
+    + specificity
+      + Most specific selector combination wins(score)
+        + inline style
+        + id
+        + class, pseudo class
+        + num of elements
+  + styling text
+    + ``` 
+        fontfamily: Arial,Helvetia,sansserif;   
+        color:#0000ff;\\rgb
+        font-style:italic;
+        font-weight:bold;
+        font-size:24px;
+        text-transform:capitialize;\\lowercase;
+        text-align:right;
+        overflow: hidden;\\scroll|auto
+        ```
+      + provide some options if user have no this font
+      +  2em accumulate
+  + Box Model
+    + ``` padding: top,right,bottom,left```
+    + ``` * {} ``` select but not inherit
+    + Margin is part of the box away from the edge
+    + border, padding will accumulate
+    + in CSS3 box-sizing:border-box(then width will include padding and border)
+    + Margin cumulative horizontally but collpase(larger win) when vertically.
+  + Background
+    + background-color:blue;
+    + ```background-repeat:no-repeat```
+    + ```background-position:right```
+    + all in one:
+       ```
+       background:url('*.png)
+       no-repeat right center;
+       ```
+       + overwrite pre-defined slash property
+  + Floating Element
+    + ```float:right```
+    + float element margin not collapse
+  + Element Positioning
+    + ```position:absolute/relative```
+    + Relative
+      + relative to normal doc flow
+      + top,bottom,left,right(offset)
+      + not taken out of normal doc flow
+        + moved original spot is perserved
+      + relative to the position of the nearest andcestor 
+    + Absolute
+      + static in doc flow except html
+  + Responsive Design
+    + Media Queries
+      ```
+      @media (max-width:767px) and (min-width:128px){\\if true fall in the part
+        p{
+          color:blue;
+        }
+      }
+      ```
+      + , equivalent to OR
+      + start with some base styles
+      + carefule not to overlap range boundaries
+    + Responsive Design
+      + content is like water
+      + adapt layout to the viewing environment by using fluid proportion-based grids, flexible images, and CSS3 media quries
+      + Server detect user-agent, i.e. browser
+      + 12-column grid layout
+      + viewport meta tage to turn of default mobile zooming
++ Twitter Boostrap
+  + most popular HTML,CSS,JS Framework for responsive mobile first project
+  + Setup
+    + getbootstrap.com/getting-started Download
+    + jQuery,save to/js
+  + Grid System Basics
+    + 12 column
+    ```
+    <div class="container">
+    <!-- container-fluid: stretches the layout the full width of the browser and provides consistent padding -->
+      <div class="row">
+        <!-- creates horizontal groups of columns -->
+        <div class="col-md-4">Col 1</div>
+        ...
+      </div>
+    </div>
+    ```
+    + every column ```col-SIZE-SPAN```
+      + SIZE: screen width range identifier
+      + columns will collapes(i.e. stack) below that width
+        + unless antoher rule applies
+      + SPAN [1,12] 
+    + 
 ## Javascript
 + Behavior,Function
 
