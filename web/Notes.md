@@ -13,6 +13,7 @@
 + Hypertext Markup Language
   + Define structure
   + Annotates content
+  + Validate the Code:validator.w3.org
 + History
   + W3C
     + HTML5(standard) 
@@ -36,6 +37,15 @@
         + FTP
       + domain - ther server
       + (optional) document
++ Document Object Model(DOM)
+  + tree-like structure
+  <img src="imgs/Screenshot1.png">
+  + doctype html
+  + head 
+    + meta data
+    + supporting files - JS,Styling, Add-ons
+  + body
+    + most of the content is displayed
 + HTML Tag
   + opening tag ... closing tag
     + ``` <p> content </p>```
@@ -49,6 +59,7 @@
     + can't specify attribute on the closing tag
     + at least one space betweeen the tag and any of its attributes, extra will be ignored
     + single or double quotes but must match
+    + class, id ,style, accesskey, tablindex
   + self-closing: no content
 + HTML Basis
   + from top to bottom
@@ -88,6 +99,18 @@
     </section>
     <footer> footer info</footer>
     ```
+  + Paragraphs(block) ```<p>...</p>```
+    + should only contain inline elements
+  + ```<nav></nav>```
+    + section of the page tha linkes to other pages or to parts in the page
+    + often found in the ```<header>``` tag
+  + ```<footer></footer>```
+    + sec contains info such as copyright etc.
+    + typically at the bottom
+  + ```<figure></figure>```
+    + include caption
+    + multiple multi-media resources
+  
   + Lists
     + only li allowed in ul
     ```
@@ -97,6 +120,11 @@
     </ul> 
     ```
     + ```<ol> </ol>```
+  + Others
+    + new structual elements
+    + form
+    + Input Types
+    + Graphics Element
   + HTML Characketer Entity Refs
     + distinguish HTML character from content
     + escape < > &
@@ -107,21 +135,60 @@
       + misuse: for space;use span tag instead 
     + ```&quote;```  
   + Links
-    + ```<a href="" title="" target="_blank"></a>```
-    + ```<a href="" name="" target="_blank"></a>```
-    + both inline and block
-    + fragement specify ``` <a href="#section1"></a> ```
+    + a for anchor link
+    + hyper-reference and content
+    + target
+      + ```_self```:default
+      + ```_blank```: open in new tab
+      + ```<a href="" title="" target="_blank"></a>```
+      + ```<a href="" name="" target="_blank"></a>```
+    + Absolute
+      + put full url in href
+    + Relative
+      + link to a local file in the same folder
+      + fragement specify ``` <a href="#section1"></a> ```
       then go to part ```<a name="section1"></a>```
+    + Internal
+    + Graphical
+      + image as link
+    + both inline and block  
   + Images
     + ```<img src="lena.jpg" width="400" height="360" alt="Picture with a quote">```
     + inline
     + width and height can help reserve space
     + when use url add ```<meta name="referrer" content="no-referrer">``` in head if can not dispaly(seems security issues)
-
-
-
-
-
+    + suggest using Percentages for size
+    + favicons
+      + put image/logo/icon next to the title
+      + go in ```<head>``` section
+        + ```link rel="icon" type="image/png" heref="imgs/*.png"/>
+    + Alternative Text
+      + provides a textual alternative
+      + provides sematice content to search engine
+  + Font Awesome
+  + Multimedia
+    + video and audio
+    + ```<video></video>```
+      + loop
+      + autoplay
+      + controls
+      + height,width
+    + ```<audio></audio>```
+      + autoplay,loop
+      + buffered
+      + ```.ext#t=5,25```
+  + Tables
+    ```
+    <table>
+        <tr><td> One</td></tr>
+        <tr><td> One</td></tr>
+        <tr><td> One</td></tr>
+    </table>
+    ```
+    + table headings ```<th></th>```
+    + spanning multiple cells
+      + ``` <td rowspan="2">```
+    + ```<table border="1">```
 ## CSS
 + Style
   + color
