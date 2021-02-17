@@ -317,9 +317,72 @@
   + Application
     + building block
     + for may parallel programs
-+ Hypergator
-  + ``` srun -p gpu --gpu=1 --time=01:00:00 --pty -u bash -i```
-  + ``` /blue/cis4936/```
++ Efficien Data Transfer
+  + PCI as Meme Mapped I/O\
+  ![tmp](imgs/PCI-bus.png)
+    + PCI dev registers are mapped into the CPU's physical addr space
+      + through loads/stored(kernel mode)
+    + addr are assigned to the PCI at boot time
+  + Express(PCIe)
+    + switched,p2p connection
+      + no bus arbitration
+      + packet swtiches message form virtual chanlle
+      + Prioritized packets for QoS
+        + e.g. real-time video streaming
+  + Data Transfer using DMA
+    + DMA(Directed Mem Acc) 
+      + fully utilize the bandwidth of an I/Obus
+      + physical ddr for src and dest
+      + anumber of bytes requested by OS
+      + needs pinned mem
+      + DMA harware much faster than CPU software and frees the CPU for other tasks during the data transfer
+    + used for CudaMemcpy()\
+      ![tmp](imgs/DMA.png)
+    + Pinned Mem
+      + virtual memory pages marked so that they cannnot be paged out
+      + allocated with a special sys API func
+    + CUDA Sreams
+      + efficiently transfer data
+      + task parallelism
+      + Serialized Data Transfer and Computation
+      + some CUA devices suppport device overalap
+        + simultaneously execute a kernel while copying data between device and host mem
+      + Ideal,Peiplined Timing\
+        ![tmp](imgs/pipeline.png)
+        + Divide large vects inot segs
+        + Overlap transfer and copute of adjacent segs
+      + each stream is a queue of ps(kernel lauches and cudaMemcpy() calls)
+        + FIFO que
+        + readn and processed async 
+      + to allow concurrent copying and kernel, use multiple queues\
+      ![tmp](imgs/Streams.png)d
+      ```
+      cudaStream_t stream0,stream1;
+      cudaStreamCreate(&stream0);
+      cudaStreamCreate(&stream1);
+      ```
+      Host Code
+      ```
+      for (int i=0;i<n;i+=segSize*2>){
+        cudaMemcpyAsync(d_A0,h_A+i,segSize*sizeof(float,...,stream0));
+      }
+      ```
+    + Data Prefetching CUDA API
+      + cudaMemPrefetchAsync()
+        + univied mem addr of
+    ```
+    void function(int * data cudaStream_t stream){
+      //data must've been allocated with cuda MallocManaged((void**)&data,N);
+      init(data,N);
+      cudaMemPrefetechAsync(data,N*sizeof(int),myGpuId,stream);
+      kernel<<<...>>>
+    }
+    ```
+    + CUDA unified mem - mem advisor
+      + hints can be provided to the driver on how data will be used during runtime
+      + one example of when we 
++ Floating point considerations
+  + 
 + CUDA Event API
   + ```
     cudaEvent_t start, stop;
