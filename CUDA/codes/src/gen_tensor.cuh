@@ -1,0 +1,1 @@
+__global__ void gen_tensor(float* tensor);

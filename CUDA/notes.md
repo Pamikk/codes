@@ -12,7 +12,6 @@
     + copy results from GPU mem to CPU mem
   + compile and run
     + ```nvcc -o single-thread-vector-add 01-vector-add/01-vector-add.cu -run```
-    + ```nsys profile --stats=true ./single-thread-vector-add```
     + ```nsys profile --stats=true ./page-faults```
     + ```nvprof ./page-faults```
     + ```nsight-sys``` system view
@@ -27,8 +26,7 @@
       int deviceId;
       cudaGetDevice(&deviceId); 
       cudaMemPrefetchAsync(pointerToSomeUMData, size, deviceId);        // Prefetch to GPU device.
-      cudaMemPrefetchAsync(pointerToSomeUMData, size, cudaCpuDeviceId); // Prefetch to host. `cudaCpuDeviceId` is a
-                                                                  // built-in CUDA variable.
+      cudaMemPrefetchAsync(pointerToSomeUMData, size, cudaCpuDeviceId); // Prefetch to host. `cudaCpuDeviceId` is a cudA variable.
       ```
     + best num of blocks
       ```
@@ -45,6 +43,36 @@
 
       cudaStreamDestroy(stream); // Note that a value, not a pointer, is passed to `cudaDestroyStream`
       ```
++ concurrency 
+  + overlap mem transfer
+    + CUDA streams
+    + stream behavior
+      + ops occur in issued order in GPU
+      + always one default(labeled as 0) per device
+      + issue in same stream will in issued order
+      + defualt stream overlap with non-dfault streams cannot occur
+      + Programming
+        + defualt 0
+        + ```cudaStream_t```
+        + use 4th launch config arg
+          ``` kernel<<<block,thread,sharemem,stream>>>()```
+        + use non-default stream
+          ``` 
+          cudaStream_t stream;
+          cudaStreamCreate(&stream);
+          kernel<<<grid, blocks, 0, stream>>>();
+          cudaStreamDestroy(stream);
+          ```
+        + pinned host mem ```cudaMallocHost```
+        + ```cudaMemcpyAsync(data_gpu,data_cpu,sizeof(uint64_t)*num_entries,cudaMemcpyHostToDevice,stream);```
+        + ```cudaStreamSynchronize(stream);```
+      + Data Chuncking
+        + compy/compute overlap
+  + computation concurrently on morethan one GPU
+    + ``` cudaGetDeviceCount(&num_gpus);```
+    + ```cudaGetDevice(&device);```
+    + ```cudaSetDevice(0);```
+         
 + Heterogeneous Computing
   + CPU: Latency Oriented Cores\
     <img src="imgs/CPU.png">
@@ -1247,7 +1275,7 @@
       + aggregate launch
         + one thread collect the work of multiple threads and launch a single grid
   + Memory Visibility
-    + ops on global mem made by a parent thread before the launch are visibile tot hte child
+    + ops on global mem made by a parent thread before the launch are visibile to the child
       + ops made by the child are visible to the parent after the child returns and the parent has syncrhonized
     + a thred's block mem and a block's local mem
   + Nesting Depth(24)

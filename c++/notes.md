@@ -24,8 +24,7 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
   + -std =c++0x
 + Multi-file Project
   + gcc/g++ main.cpp add.cpp -o main
-
-### C++ Properties
+## C++ Properties
 
 + direct memory access is not allowed: object(region of memory), store and retrive values; named one variable and its name is identifier. 
   + instantiation: create vairable and assign memory address
@@ -119,8 +118,7 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
 + namespace
     + std::cout
     + using namespace std;
-
-### Function
+## Function
 
 + user-defined function
     + nested function is not allowed
@@ -147,8 +145,7 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
 
 
 
-
-### Fromatting
+## Fromatting
 
 + Whitespace is a term that refers to characters that are used for formatting purposes.
     + refers primarily to spaces, tabs, and newlines
@@ -160,7 +157,7 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
     + std::cout << "Hello "
      "world!"; // prints "Hello world!"
 + "\\\\" for single-line comment and "\\* *\\" for multi-line comments.
-### Preprocessor
+## Preprocessor
 + instructions that start with a # symbol and end with a newline (NOT a semicolon)
 + tell the preprocessor to perform specific particular text manipulation tasks
 + not the same but resemble c++ syntax
@@ -185,8 +182,7 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
     + scope of #define
 
         resolved before compilation, from top to bottom on a file-by-file basis.
-
-### Operators
+## Operators
 + precedence and associativity 
 
     https://www.learncpp.com/cpp-tutorial/31-precedence-and-associativity/
@@ -205,17 +201,3 @@ Reviewing C++ to prepare for learning Caffe and Opencv \_(:3\|—\|\_
     + c?x:y
     + if c then x else y
 + 
-### Control Flow
-+ if
-    + if (condition) statement1;
-    + if (condition) statement1;else statement2;
-    + if (condition1) statement1;
-    
-      else if (condtion2) statement2;
-
-      else statement3;
-
-
-
-
-

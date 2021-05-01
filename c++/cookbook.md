@@ -1,6 +1,7 @@
-# C++ Advanced(?) Notes
+# C++ Cookbooks
 
- Note based on <http://www.cplusplus.com/doc/tutorial/>, a quick review compared to notes.
+ Note based on <http://www.cplusplus.com> \
+ cookbook to quickly look through for useful funcs/data types while coding
 
 ## Datatype
 
@@ -14,6 +15,9 @@
     string mystring ("This is a string");
     string mystring {"This is a string"};
     ```
+  - functions
+    + copy ```char * strcpy ( char * destination, const char * source );```
+    + concatentate ```char * strcat ( char * destination, const char * source );```
 
 - Compound Datatype
   - Array
@@ -32,14 +36,23 @@
       - arr.size()
     
 ## Basic I/O
-
-- cin
-  - getline(cin,var)
-- cout
-- cerr
-- clog
-- `#include <sstream>`
-
++ buffer
+  + ```#include <iostream>```
+    - cin
+      - getline(cin,var)
+    - cout
+    - cerr
+    - clog
+  + ```#include <stdio.h>```
+    + ```printf("Characters: %c %d %f\n", 'a', 65,23);```
+    + ```scanf()```
+    + ```int puts ( const char * str );```
+      + put string into stdout
+    + ``` char * gets ( char * str );``` 
++ File I/O
+  + ```fread```
+    + ```size_t fread ( void * ptr, size_t size, size_t count, FILE * stream );```
++ `#include <sstream>`
     treat string as stream
 
 ## Control Flow
@@ -209,8 +222,7 @@
         return 0;
     ```
 
-## Concepts(?)
-
+## Concepts
 - Storage classes
   - static storage: allocated for the entire duration of the program
     - global variable
@@ -221,6 +233,7 @@
   - structure:static heap->free memory<-stack
   - stack: local variable
   - heap: new/delete pointers
++ Array pointers and pointers array
 
 
 
