@@ -50,10 +50,10 @@
         + transform in non-homogeneous coordinates
           $$^AP=R^BP+t$$
         + in homogeneous coordinates
-          $$ ^A P =T^B P,where\ T^B=  \left \{\begin{array}{cc}
+          $$ ^A P =T^B P,where\ T^B=  \left \lbrace\begin{array}{cc}
                                                	R	&t  \\
                                               	0	& 1
-                                              \end{array} \right\}$$
+                                              \end{array} \right\rbraces$$
         + Rotations
           + parameterized by three Euler angles
             + rotation matrix from B to A
