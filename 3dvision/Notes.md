@@ -1,5 +1,6 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"> </script>
-
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 # Notes for 3D Vision
 + this notes will cover some useful knowledge and techs for 3D vision(including multi-view geometry, linear algebra, camera models, etc.)
 + Structure
@@ -131,7 +132,7 @@
     + Template Matching
       + LineMod
     + point-pair feature
-      + point-pari feature
+      + point-pair feature
       + drost-10
       + Vidal-18
     + Learning based
@@ -189,9 +190,9 @@
     + tranlation error less than 5cm
     + rotation error less than 5 degree
   + ADD
-    + $ m =avg_{x\in M}||R_{gt}x+T_{gt}-(R_{pd}x+T_{pd})||$
+    + $$ m = avg_{x \in M} ||R_{gt}x+T_{gt}-(R_{pd}x+T_{pd})|| $$
     + true positive when $K_m d\geq m$ $k_m$ is a chosen coefficient and d is the model diamter
     + for symetric, ADI
-      + $m = avg_{x_1\in M}min_{x_2\inM}||R_{gt}x_1+T_{gt}-(R_{pd}x_2+T_{pd})||$
+      + $m = avg_{x_1\in M}min_{x_2\in M}||R_{gt}x_1+T_{gt}-(R_{pd}x_2+T_{pd})||$
 ## References
 [1] Computer Vision A Mordern Approach(second edition); David A. Forsyth,  Jean Ponce

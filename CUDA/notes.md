@@ -72,7 +72,11 @@
     + ``` cudaGetDeviceCount(&num_gpus);```
     + ```cudaGetDevice(&device);```
     + ```cudaSetDevice(0);```
-         
+  + multiple streams for multiple GPUs;
+    ```
+    cudaSetDevice(gpu);
+    cudaStreamCreate(&stream);
+    ``` 
 + Heterogeneous Computing
   + CPU: Latency Oriented Cores\
     <img src="imgs/CPU.png">
