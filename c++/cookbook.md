@@ -34,7 +34,35 @@
     - Library arrays
       - array<type,num> name {}
       - arr.size()
-    
+  - [vector](https://en.cppreference.com/w/cpp/container/vector)
+    + ```capacity()`` queried total allocated memory
+    + ```shrink_to_fit()```  extra memory can be returntned
+      + not available in c++98
+    + Member functions
+      + assign, assign_range(c++23)
+      + get_allocator
+      + Access
+        + at, operator[]
+        + front -first, back-last,data
+      + Iterators
+        + begin,cbegin(c++)
+        + end,cend(c++)
+        + rbegin,crbegin,rend,crend
+      + Capacity
+        + empty
+        + size,max_size
+        + reverse,capacity,shrink_to_fit
+      + Modifiers
+        + clear
+        + insert, insert_range(c++23)
+        + emplace(c++11) constructs element in-place
+        + erase
+        + push_back, emplace_back(c++)
+        + append_range(c++23)
+        + pop_back,resize,swap
+      
+
+
 ## Basic I/O
 + buffer
   + ```#include <iostream>```
