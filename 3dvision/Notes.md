@@ -93,15 +93,15 @@
                         \end{array}\right. $
           + skew
             + due to some manufacturing error
-          $$ p = K\hat{p}, where p =  $\left( \begin{array}{c} x \\ y\\1        \end{array}\right), and K\stackrel{def}{=}$\left( \begin{array}{ccc} 
+          $$ p = K\hat{p}, where p =  \left( \begin{array}{c} x \\ y\\1        \end{array}\right), and K\stackrel{def}{=}\left( \begin{array}{ccc} 
                             \alpha & -\alpha cot\theta & x_0\\
-                            0 &  \frac{\beta}{sin\theta} & y_0\\ 0 & 0 &1
+                            0 &  \frac{\beta}{sin\theta} & y_0\\ 0 & 0 &\ 1
                         \end{array}\right) $$
       + Extrinsic Parameters
         + equation above is written in coordinate frame (C) attatched to the camera
         + we need to transfer it to world coordinate system
           + rigid transformation
-            $$ ^C P=\left(\begin{array}{cc}R&t\\0^T 1\end{array}\right)^WP$$
+            $$ ^C P=\left(\begin{array}{cc}R&t\\0^T &1\end{array}\right)^WP$$
       + $ p =\frac{1}{Z}MP, where M = K(R t)$
         + Z not indenpendt of M and P
         + perspective matrix M can be written into 5 intrinsic parameters three rows of R and three coordiantes of t
